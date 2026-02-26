@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">AXIPTV</string>
+    <string name="splash_loading">Loading…</string>
+    <string name="activation_title">Activate Your Device</string>
+    <string name="trial_start">Start Free Trial</string>
+    <string name="trial_days_remaining">%d days remaining</string>
+    <string name="trial_expired">Trial Expired</string>
+    <string name="activation_required">Activation Required</string>
+    <string name="activate">Activate</string>
+    <string name="refresh_status">Refresh Status</string>
+    <string name="device_code">Device Code</string>
+    <string name="copy">Copy</string>
+    <string name="copied">Copied!</string>
+    <string name="profile_picker_title">Select Profile</string>
+    <string name="add_profile">Add Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="profile_name_hint">Profile Name (optional)</string>
+    <string name="host_hint">Host URL (e.g. http://host:port)</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="error_host_required">Host URL is required</string>
+    <string name="error_host_invalid">Invalid host URL format</string>
+    <string name="error_username_required">Username is required</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_duplicate_profile">A profile with this host and username already exists</string>
+    <string name="error_max_profiles">Maximum 10 profiles reached</string>
+    <string name="home_live">Live</string>
+    <string name="home_vod">Movies</string>
+    <string name="home_series">Series</string>
+    <string name="home_search">Search</string>
+    <string name="home_settings">Settings</string>
+    <string name="switch_profile">Switch Profile</string>
+    <string name="coming_soon">Coming soon…</string>
+</resources>
