@@ -15,8 +15,8 @@ android {
         applicationId = "com.matrix.iptv"
         minSdk = 23
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "2.0.0"
         buildConfigField("String", "TRIAL_SALT", "\"MATRIX_IPTV_SALT_v1\"")
         buildConfigField("String", "AXIPTV_BACKEND_URL", "\"https://axiptv-backend.vercel.app/\"")
     }

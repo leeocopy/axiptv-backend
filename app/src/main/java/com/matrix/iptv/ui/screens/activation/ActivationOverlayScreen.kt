@@ -277,13 +277,7 @@ fun ActivationOverlayScreen(
 
                 Spacer(Modifier.height(12.dp))
 
-                // ── DEBUG panel (visible only in debug builds) ─────────────────
-                if (BuildConfig.DEBUG) {
-                    state.diagnostic?.let { diag ->
-                        DebugNetworkPanel(diag)
-                        Spacer(Modifier.height(8.dp))
-                    }
-                }
+
 
                 // Version — long-press DEBUG activation
                 Text(
@@ -301,65 +295,3 @@ fun ActivationOverlayScreen(
     }
 }
 
-/** Compact on-screen debug panel showing full HTTP round-trip details */
-@Composable
-private fun DebugNetworkPanel(diag: NetworkDiagnostic) {
-    val isError = diag.exceptionMessage != null || (diag.responseCode != null && diag.responseCode >= 400)
-    val bgColor = if (isError) Color(0xFF2D0B0B) else Color(0xFF0B2D12)
-    val labelColor = Color(0xFFBBBBBB)
-    val valueColor = if (isError) Color(0xFFFF6B6B) else Color(0xFF6BFF8E)
-
-    Surface(
-        shape = RoundedCornerShape(8.dp),
-        color = bgColor,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(12.dp)
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(3.dp)
-        ) {
-            Text(
-                "🔍 DEBUG – Network Diagnostic",
-                fontSize = 11.sp,
-                fontFamily = FontFamily.Monospace,
-                color = Color(0xFFFFCC00),
-                modifier = Modifier.padding(bottom = 4.dp)
-            )
-
-            DebugRow("URL",     diag.url,    labelColor, valueColor)
-            DebugRow("Method",  diag.method, labelColor, valueColor)
-            DebugRow("Request", diag.requestBody, labelColor, valueColor)
-
-            if (diag.responseCode != null) {
-                DebugRow("HTTP",     "${diag.responseCode}", labelColor, valueColor)
-                DebugRow("Response", diag.responseBody ?: "—", labelColor, valueColor)
-            }
-
-            if (diag.exceptionMessage != null) {
-                DebugRow("Exception", diag.exceptionMessage, labelColor, Color(0xFFFF4444))
-            }
-        }
-    }
-}
-
-@Composable
-private fun DebugRow(label: String, value: String, labelColor: Color, valueColor: Color) {
-    Row(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            text = "$label: ",
-            fontSize = 10.sp,
-            fontFamily = FontFamily.Monospace,
-            color = labelColor,
-            modifier = Modifier.widthIn(min = 70.dp)
-        )
-        Text(
-            text = value,
-            fontSize = 10.sp,
-            fontFamily = FontFamily.Monospace,
-            color = valueColor,
-            modifier = Modifier.weight(1f)
-        )
-    }
-}
