@@ -76,7 +76,7 @@ export async function POST(req: Request) {
       active_until: device.active_until,
       allowed,
       reason,
-      latest_version: "1.1.0",
+      latest_version: "1.3.0",
       update_url: "https://axiptv-backend.vercel.app/download/app-release.apk"
     });
   } catch (err) {
